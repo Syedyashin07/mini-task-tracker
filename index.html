@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TaskFlow is a simple task tracker that saves your tasks in this browser."
+    />
+    <meta name="theme-color" content="#6d28d9" />
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon">
+              <path
+                d="M9 11.5 11.2 14 16 8.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <rect
+                x="4"
+                y="4"
+                width="16"
+                height="16"
+                rx="5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <div>
+            <h1>TaskFlow</h1>
+            <p class="subtitle">Make today productive.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="Task summary">
+        <article class="stat">
+          <span class="stat__icon stat__icon--purple" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon">
+              <path
+                d="M8 7h11M8 12h11M8 17h11"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4.5 7h.01M4.5 12h.01M4.5 17h.01"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <p class="stat__value" id="stat-total">0</p>
+            <p class="stat__label">Total</p>
+          </div>
+        </article>
+
+        <article class="stat">
+          <span class="stat__icon stat__icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon">
+              <circle
+                cx="12"
+                cy="12"
+                r="8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M8.5 12.2 11 14.6 15.8 9.4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <p class="stat__value" id="stat-completed">0</p>
+            <p class="stat__label">Completed</p>
+          </div>
+        </article>
+
+        <article class="stat">
+          <span class="stat__icon stat__icon--indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon">
+              <circle
+                cx="12"
+                cy="12"
+                r="8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M12 8v4.2l2.6 1.6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <p class="stat__value" id="stat-pending">0</p>
+            <p class="stat__label">Pending</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="add-heading">
+        <h2 id="add-heading" class="panel__title">Add a task</h2>
+        <form id="task-form" class="composer" autocomplete="off">
+          <label class="sr-only" for="task-input">New task</label>
+          <input
+            id="task-input"
+            class="composer__input"
+            type="text"
+            name="task"
+            maxlength="200"
+            placeholder="What do you want to get done?"
+            required
+          />
+          <button class="composer__button" type="submit">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path
+                d="M12 5v14M5 12h14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+            </svg>
+            Add Task
+          </button>
+        </form>
+        <p id="form-message" class="form-message" role="alert" hidden></p>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <div class="panel__header">
+          <h2 id="list-heading" class="panel__title">Your tasks</h2>
+          <p class="panel__note">Saved in this browser</p>
+        </div>
+        <p id="empty-state" class="empty">
+          <span class="empty__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon">
+              <rect
+                x="6"
+                y="4"
+                width="12"
+                height="16"
+                rx="2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M9 9h6M9 13h6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          No tasks yet. Add one to get started.
+        </p>
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+
+      <p id="live-status" class="sr-only" aria-live="polite"></p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
